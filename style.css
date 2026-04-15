@@ -1,73 +1,92 @@
 body {
   margin: 0;
-  font-family: Arial;
-  background: linear-gradient(135deg, #00BFFF, #e6f7ff);
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f172a;
+  color: white;
+}
+
+.app {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.container {
-  width: 320px;
+.box {
+  width: 340px;
+  padding: 30px;
+  background: #111827;
+  border-radius: 20px;
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 0 40px rgba(0,191,255,0.2);
+  transition: 0.3s;
 }
 
-.card {
-  background: white;
-  padding: 25px;
-  border-radius: 15px;
-  text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  animation: fade 0.3s ease;
+.box.active {
+  display: flex;
 }
 
 h1 {
-  margin-bottom: 5px;
+  margin: 0;
+  font-size: 28px;
 }
 
-p {
-  color: gray;
+span {
+  color: #94a3b8;
   font-size: 14px;
 }
 
 input, textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: #1f2933;
+  color: white;
 }
 
 textarea {
-  height: 80px;
+  height: 90px;
+  resize: none;
 }
 
 button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
+  padding: 12px;
+  border-radius: 10px;
   border: none;
-  border-radius: 8px;
   background: #00BFFF;
   color: white;
+  font-weight: bold;
   cursor: pointer;
   transition: 0.2s;
 }
 
 button:hover {
+  transform: scale(1.05);
   background: #009acd;
 }
 
-.hidden {
-  display: none;
+.grid {
+  display: grid;
+  gap: 10px;
+}
+
+.grid div {
+  padding: 15px;
+  background: #1f2933;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.2s;
+}
+
+.grid div:hover {
+  background: #00BFFF;
 }
 
 #result {
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-@keyframes fade {
-  from {opacity: 0; transform: translateY(10px);}
-  to {opacity: 1;}
+  color: #00ffcc;
+  font-size: 14px;
 }
