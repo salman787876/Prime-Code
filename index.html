@@ -1,1 +1,33 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>Prime Code</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+  <header>
+    <h1>Prime Code</h1>
+    <p>متجر الخدمات الرقمية</p>
+  </header>
+
+  <section class="container">
+    <h2>اطلب الآن</h2>
+
+    <input type="text" id="name" placeholder="اسمك">
+    
+    <select id="service">
+      <option>تصميم سيرفر FiveM</option>
+      <option>برمجة سكربت</option>
+      <option>حماية سيرفر</option>
+    </select>
+
+    <button onclick="createOrder()">إنشاء الطلب</button>
+
+    <div id="result"></div>
+  </section>
+
+</body>
+<script src="script.js"></script>
+</html>
