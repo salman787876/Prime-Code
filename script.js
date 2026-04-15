@@ -1,3 +1,5 @@
+let selectedService = "";
+
 function generateOrderID() {
   return "PRIME-" + Math.floor(100000 + Math.random() * 900000);
 }
@@ -11,24 +13,29 @@ function login() {
     return;
   }
 
-  localStorage.setItem("user", JSON.stringify({
-    discord,
-    realname
-  }));
+  localStorage.setItem("user", JSON.stringify({ discord, realname }));
 
-  document.getElementById("loginBox").classList.add("hidden");
-  document.getElementById("orderBox").classList.remove("hidden");
+  document.getElementById("login").classList.add("hidden");
+  document.getElementById("services").classList.remove("hidden");
+}
+
+function selectService(service) {
+  selectedService = service;
+
+  document.getElementById("services").classList.add("hidden");
+  document.getElementById("order").classList.remove("hidden");
+
+  document.getElementById("serviceTitle").innerText = service;
 }
 
 function createOrder() {
   const user = JSON.parse(localStorage.getItem("user"));
 
-  const service = document.getElementById("service").value;
   const title = document.getElementById("title").value;
   const details = document.getElementById("details").value;
 
   if (!title || !details) {
-    alert("اكتب تفاصيل الطلب");
+    alert("اكتب التفاصيل");
     return;
   }
 
@@ -40,11 +47,10 @@ function createOrder() {
     orderId,
     discord: user.discord,
     realname: user.realname,
-    service,
+    service: selectedService,
     title,
     details,
-    status: "pending",
-    date: new Date().toLocaleString()
+    status: "pending"
   });
 
   localStorage.setItem("orders", JSON.stringify(orders));
