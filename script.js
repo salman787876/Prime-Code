@@ -1,31 +1,28 @@
-let selectedService = "";
+let currentService = "";
+
+function switchBox(id) {
+  document.querySelectorAll(".box").forEach(b => b.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
 
 function generateOrderID() {
-  return "PRIME-" + Math.floor(100000 + Math.random() * 900000);
+  return "PRIME-" + Math.floor(Math.random() * 999999);
 }
 
 function login() {
   const discord = document.getElementById("discord").value;
-  const realname = document.getElementById("realname").value;
+  const name = document.getElementById("realname").value;
 
-  if (!discord || !realname) {
-    alert("عبي كل البيانات");
-    return;
-  }
+  if (!discord || !name) return alert("Fill all fields");
 
-  localStorage.setItem("user", JSON.stringify({ discord, realname }));
-
-  document.getElementById("login").classList.add("hidden");
-  document.getElementById("services").classList.remove("hidden");
+  localStorage.setItem("user", JSON.stringify({ discord, name }));
+  switchBox("services");
 }
 
 function selectService(service) {
-  selectedService = service;
-
-  document.getElementById("services").classList.add("hidden");
-  document.getElementById("order").classList.remove("hidden");
-
+  currentService = service;
   document.getElementById("serviceTitle").innerText = service;
+  switchBox("order");
 }
 
 function createOrder() {
@@ -34,27 +31,22 @@ function createOrder() {
   const title = document.getElementById("title").value;
   const details = document.getElementById("details").value;
 
-  if (!title || !details) {
-    alert("اكتب التفاصيل");
-    return;
-  }
+  if (!title || !details) return alert("Fill all fields");
 
-  const orderId = generateOrderID();
+  const id = generateOrderID();
 
-  const orders = JSON.parse(localStorage.getItem("orders")) || [];
+  let orders = JSON.parse(localStorage.getItem("orders")) || [];
 
   orders.push({
-    orderId,
-    discord: user.discord,
-    realname: user.realname,
-    service: selectedService,
+    id,
+    user,
+    service: currentService,
     title,
-    details,
-    status: "pending"
+    details
   });
 
   localStorage.setItem("orders", JSON.stringify(orders));
 
-  document.getElementById("result").innerHTML =
-    "✅ تم إرسال الطلب<br>📦 رقم الطلب: " + orderId;
+  document.getElementById("result").innerText =
+    "Order ID: " + id;
 }
