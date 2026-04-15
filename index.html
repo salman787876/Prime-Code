@@ -7,38 +7,40 @@
 </head>
 <body>
 
-<div class="container">
+<div class="app">
 
   <!-- LOGIN -->
-  <div id="login" class="card">
+  <div id="login" class="box active">
     <h1>Prime Code</h1>
-    <p>تسجيل الدخول</p>
+    <span>Welcome</span>
 
-    <input type="text" id="discord" placeholder="Discord Username">
-    <input type="text" id="realname" placeholder="اسمك الحقيقي">
+    <input id="discord" placeholder="Discord Username">
+    <input id="realname" placeholder="Full Name">
 
-    <button onclick="login()">دخول</button>
+    <button onclick="login()">Continue</button>
   </div>
 
   <!-- SERVICES -->
-  <div id="services" class="card hidden">
-    <h2>اختر الخدمة</h2>
+  <div id="services" class="box">
+    <h2>Select Service</h2>
 
-    <button onclick="selectService('تصميم سيرفر')">تصميم سيرفر</button>
-    <button onclick="selectService('برمجة سكربت')">برمجة سكربت</button>
-    <button onclick="selectService('حماية')">حماية</button>
+    <div class="grid">
+      <div onclick="selectService('FiveM Server')">FiveM Server</div>
+      <div onclick="selectService('Script Development')">Script</div>
+      <div onclick="selectService('Protection')">Protection</div>
+    </div>
   </div>
 
   <!-- ORDER -->
-  <div id="order" class="card hidden">
+  <div id="order" class="box">
     <h2 id="serviceTitle"></h2>
 
-    <input type="text" id="title" placeholder="عنوان الطلب">
-    <textarea id="details" placeholder="اكتب تفاصيل الطلب..."></textarea>
+    <input id="title" placeholder="Order Title">
+    <textarea id="details" placeholder="Explain what you want..."></textarea>
 
-    <button onclick="createOrder()">إرسال الطلب</button>
+    <button onclick="createOrder()">Submit Order</button>
 
-    <div id="result"></div>
+    <p id="result"></p>
   </div>
 
 </div>
