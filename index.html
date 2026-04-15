@@ -7,26 +7,32 @@
 </head>
 <body>
 
-  <header>
-    <h1>Prime Code</h1>
-    <p>متجر الخدمات الرقمية</p>
-  </header>
+<div class="glass" id="loginBox">
+  <h1>Prime Code</h1>
+  <p>تسجيل الدخول</p>
 
-  <section class="container">
-    <h2>اطلب الآن</h2>
+  <input type="text" id="discord" placeholder="Discord Username">
+  <input type="text" id="realname" placeholder="اسمك الحقيقي">
 
-    <input type="text" id="name" placeholder="اسمك">
-    
-    <select id="service">
-      <option>تصميم سيرفر FiveM</option>
-      <option>برمجة سكربت</option>
-      <option>حماية سيرفر</option>
-    </select>
+  <button onclick="login()">دخول</button>
+</div>
 
-    <button onclick="createOrder()">إنشاء الطلب</button>
+<div class="glass hidden" id="orderBox">
+  <h2>إنشاء طلب</h2>
 
-    <div id="result"></div>
-  </section>
+  <select id="service">
+    <option>تصميم سيرفر FiveM</option>
+    <option>برمجة سكربت</option>
+    <option>حماية سيرفر</option>
+  </select>
+
+  <input type="text" id="title" placeholder="عنوان الطلب">
+  <textarea id="details" placeholder="اكتب تفاصيل الطلب..."></textarea>
+
+  <button onclick="createOrder()">إرسال الطلب</button>
+
+  <div id="result"></div>
+</div>
 
 </body>
 <script src="script.js"></script>
