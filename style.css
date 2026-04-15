@@ -1,29 +1,33 @@
 body {
   margin: 0;
   font-family: Arial;
-  background: #f5fbff;
+  background: linear-gradient(135deg, #00BFFF, #ffffff);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-header {
-  background: #00BFFF;
-  color: white;
-  text-align: center;
+.glass {
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
   padding: 30px;
-}
-
-.container {
-  background: white;
+  border-radius: 15px;
   width: 300px;
-  margin: 50px auto;
-  padding: 20px;
-  border-radius: 10px;
   text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
 }
 
-input, select {
+input, select, textarea {
   width: 100%;
-  padding: 10px;
   margin: 10px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+}
+
+textarea {
+  height: 80px;
 }
 
 button {
@@ -32,6 +36,7 @@ button {
   border: none;
   padding: 10px;
   width: 100%;
+  border-radius: 8px;
   cursor: pointer;
 }
 
@@ -39,7 +44,6 @@ button:hover {
   background: #009acd;
 }
 
-#result {
-  margin-top: 15px;
-  font-weight: bold;
+.hidden {
+  display: none;
 }
