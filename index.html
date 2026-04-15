@@ -7,33 +7,42 @@
 </head>
 <body>
 
-<div class="glass" id="loginBox">
-  <h1>Prime Code</h1>
-  <p>تسجيل الدخول</p>
+<div class="container">
 
-  <input type="text" id="discord" placeholder="Discord Username">
-  <input type="text" id="realname" placeholder="اسمك الحقيقي">
+  <!-- LOGIN -->
+  <div id="login" class="card">
+    <h1>Prime Code</h1>
+    <p>تسجيل الدخول</p>
 
-  <button onclick="login()">دخول</button>
+    <input type="text" id="discord" placeholder="Discord Username">
+    <input type="text" id="realname" placeholder="اسمك الحقيقي">
+
+    <button onclick="login()">دخول</button>
+  </div>
+
+  <!-- SERVICES -->
+  <div id="services" class="card hidden">
+    <h2>اختر الخدمة</h2>
+
+    <button onclick="selectService('تصميم سيرفر')">تصميم سيرفر</button>
+    <button onclick="selectService('برمجة سكربت')">برمجة سكربت</button>
+    <button onclick="selectService('حماية')">حماية</button>
+  </div>
+
+  <!-- ORDER -->
+  <div id="order" class="card hidden">
+    <h2 id="serviceTitle"></h2>
+
+    <input type="text" id="title" placeholder="عنوان الطلب">
+    <textarea id="details" placeholder="اكتب تفاصيل الطلب..."></textarea>
+
+    <button onclick="createOrder()">إرسال الطلب</button>
+
+    <div id="result"></div>
+  </div>
+
 </div>
 
-<div class="glass hidden" id="orderBox">
-  <h2>إنشاء طلب</h2>
-
-  <select id="service">
-    <option>تصميم سيرفر FiveM</option>
-    <option>برمجة سكربت</option>
-    <option>حماية سيرفر</option>
-  </select>
-
-  <input type="text" id="title" placeholder="عنوان الطلب">
-  <textarea id="details" placeholder="اكتب تفاصيل الطلب..."></textarea>
-
-  <button onclick="createOrder()">إرسال الطلب</button>
-
-  <div id="result"></div>
-</div>
-
-</body>
 <script src="script.js"></script>
+</body>
 </html>
